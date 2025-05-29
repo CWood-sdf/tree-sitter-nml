@@ -101,15 +101,15 @@ module.exports = grammar({
 
 		_node: ($) =>
 			choice(
-				// $.doctype,
-				// $.entity,
-				// $.substitution,
-				// $.templating,
-				// $.text,
-				// $.element,
-				// $.script_element,
+				$.doctype,
+				$.entity,
+				$.substitution,
+				$.templating,
+				$.text,
+				$.element,
+				$.script_element,
 				$.style_element,
-				// $.erroneous_end_tag,
+				$.erroneous_end_tag,
 			),
 
 		element: ($) =>
@@ -125,7 +125,12 @@ module.exports = grammar({
 				$.script_end_tag,
 			),
 
-		style_element: ($) => seq($.style_start_tag, $.raw_text, $.style_end_tag),
+		style_element: ($) =>
+			seq(
+				alias($.style_start_tag, $.start_tag),
+				optional($.raw_text),
+				$.style_end_tag,
+			),
 
 		start_tag: ($) =>
 			seq(

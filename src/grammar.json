@@ -424,7 +424,39 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "doctype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "entity"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "substitution"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "templating"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "element"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "script_element"
+        },
+        {
+          "type": "SYMBOL",
           "name": "style_element"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "erroneous_end_tag"
         }
       ]
     },
@@ -496,12 +528,25 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "style_start_tag"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "style_start_tag"
+          },
+          "named": true,
+          "value": "start_tag"
         },
         {
-          "type": "SYMBOL",
-          "name": "raw_text"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "raw_text"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

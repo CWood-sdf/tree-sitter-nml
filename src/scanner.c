@@ -99,17 +99,11 @@ static bool scan_raw_text(TSLexer *lexer) {
   const char *end2 = "</style>";
   const int end2len = strlen(end2);
   int end2Ptr = 0;
-  FILE *f = fopen(
-      "/home/christopher-wood/projects/banana.nvim/tree-sitter-nml/thing.txt",
-      "a");
-  fprintf(f, "str\n");
-  // lexer->mark_end(lexer);
   while (true) {
     if (lexer->eof(lexer)) {
       break;
     }
     char currentChar = lexer->lookahead;
-    fprintf(f, "%c\n", currentChar);
     if (currentChar == end1[end1Ptr] || currentChar == end2[end2Ptr]) {
       if (currentChar == end1[end1Ptr]) {
         end1Ptr++;
@@ -128,15 +122,12 @@ static bool scan_raw_text(TSLexer *lexer) {
         break;
       }
 
-      lexer->advance(lexer, true);
-    } else {
       lexer->advance(lexer, false);
-      fprintf(f, "Marking end\n");
+    } else {
       lexer->mark_end(lexer);
+      lexer->advance(lexer, false);
     }
   }
-  fprintf(f, "Done\n");
-  fclose(f);
   // lexer->mark_end(lexer);
   lexer->result_symbol = RAW_TEXT;
   return true;
@@ -178,10 +169,6 @@ bool tree_sitter_nml_external_scanner_scan(void *payload, TSLexer *lexer,
   //     return true;
   //   }
   // }
-  FILE *f = fopen(
-      "/home/christopher-wood/projects/banana.nvim/tree-sitter-nml/thing.txt",
-      "a");
-  fprintf(f, "Is valid: %d %c\n", valid_symbols[RAW_TEXT], lexer->lookahead);
   if (valid_symbols[RAW_TEXT] && scan_raw_text(lexer)) {
     return true;
   }
