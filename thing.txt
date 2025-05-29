@@ -1,0 +1,124 @@
+str
+
+
+Marking end
+ 
+Marking end
+ 
+Marking end
+a
+Marking end
+a
+Marking end
+s
+Marking end
+d
+Marking end
+f
+Marking end
+
+
+Marking end
+<
+/
+s
+t
+y
+l
+e
+>
+Done
+Is valid: 1 
+
+str
+
+
+Marking end
+ 
+Marking end
+ 
+Marking end
+a
+Marking end
+a
+Marking end
+s
+Marking end
+d
+Marking end
+f
+Marking end
+
+
+Marking end
+<
+/
+s
+t
+y
+l
+e
+>
+Done
+Is valid: 1 
+
+str
+
+
+Marking end
+ 
+Marking end
+ 
+Marking end
+a
+Marking end
+a
+Marking end
+s
+Marking end
+d
+Marking end
+f
+Marking end
+
+
+Marking end
+
+
+Marking end
+ 
+Marking end
+ 
+Marking end
+a
+Marking end
+s
+Marking end
+d
+Marking end
+f
+Marking end
+a
+Marking end
+s
+Marking end
+d
+Marking end
+f
+Marking end
+k
+Marking end
+
+
+Marking end
+<
+/
+s
+t
+y
+l
+e
+>
+Done
+Is valid: 1 
+
