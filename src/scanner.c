@@ -99,6 +99,7 @@ static bool scan_raw_text(TSLexer *lexer) {
   const char *end2 = "</style>";
   const int end2len = strlen(end2);
   int end2Ptr = 0;
+  bool found = false;
   while (true) {
     if (lexer->eof(lexer)) {
       break;
@@ -124,13 +125,14 @@ static bool scan_raw_text(TSLexer *lexer) {
 
       lexer->advance(lexer, false);
     } else {
+      found = true;
       lexer->mark_end(lexer);
       lexer->advance(lexer, false);
     }
   }
   // lexer->mark_end(lexer);
   lexer->result_symbol = RAW_TEXT;
-  return true;
+  return found;
 }
 
 bool tree_sitter_nml_external_scanner_scan(void *payload, TSLexer *lexer,
