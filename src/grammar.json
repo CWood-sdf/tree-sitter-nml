@@ -26,6 +26,10 @@
         },
         {
           "type": "STRING",
+          "value": "code"
+        },
+        {
+          "type": "STRING",
           "value": "pre"
         },
         {

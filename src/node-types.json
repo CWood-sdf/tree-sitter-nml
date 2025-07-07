@@ -601,6 +601,10 @@
     "named": false
   },
   {
+    "type": "code",
+    "named": false
+  },
+  {
     "type": "comma",
     "named": true
   },
