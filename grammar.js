@@ -49,52 +49,52 @@ module.exports = grammar({
 			seq("<!--", repeat(choice(/[^-]/, /\-[^-]/, /--[^>]/)), "-->"),
 		self_closing_tags: (_) => choice("meta", "br", "canvas", "hr", "bound"),
 
-		templating_name: (_) => /[\w_][\w_\d]*/,
-
-		templating_decl_if: ($) => seq(alias("if", $.conditional), $.if_clause),
-		// a regex that stops matching if one } is reached, but not if 2 are
-		// if_clause: () => /[^}\s](?:(})+|[^}\s])*\s*/,
-
-		named_variable: () => /[\w_]+[\w_\d]*/,
-
-		templating_decl_for: ($) =>
-			seq(
-				alias("for", $.conditional),
-				$.named_variable,
-				repeat(seq(alias(",", $.comma), $.named_variable)),
-				alias("in", $.loop_in),
-				$.if_clause,
-			),
-
-		conditional: (_) => choice("if", "for"),
-
-		templating_decl: ($) => choice($.templating_decl_if, $.templating_decl_for),
-
-		templating_repeat_elseif: ($) =>
-			seq(alias("elseif", $.conditional), $.if_clause),
-
-		templating_repeat_else: ($) => alias("else", $.conditional),
-		templating_repeat_decl: ($) =>
-			choice($.templating_repeat_elseif, $.templating_repeat_else),
-
-		templating_cont_open: (_) => "{:",
-		templating_open: (_) => "{#",
-		templating_close: (_) => "}",
-
-		template_repeat: ($) =>
-			seq($.templating_cont_open, $.templating_repeat_decl, $.templating_close),
-		templating_close_start: (_) => "{/",
-
-		templating: ($) =>
-			seq(
-				$.templating_open,
-				$.templating_decl,
-				$.templating_close,
-				repeat(choice($._node, /\s+/, $.template_repeat)),
-				$.templating_close_start,
-				$.conditional,
-				$.templating_close,
-			),
+		// templating_name: (_) => /[\w_][\w_\d]*/,
+		//
+		// templating_decl_if: ($) => seq(alias("if", $.conditional), $.if_clause),
+		// // a regex that stops matching if one } is reached, but not if 2 are
+		// // if_clause: () => /[^}\s](?:(})+|[^}\s])*\s*/,
+		//
+		// named_variable: () => /[\w_]+[\w_\d]*/,
+		//
+		// templating_decl_for: ($) =>
+		// 	seq(
+		// 		alias("for", $.conditional),
+		// 		$.named_variable,
+		// 		repeat(seq(alias(",", $.comma), $.named_variable)),
+		// 		alias("in", $.loop_in),
+		// 		$.if_clause,
+		// 	),
+		//
+		// conditional: (_) => choice("if", "for"),
+		//
+		// templating_decl: ($) => choice($.templating_decl_if, $.templating_decl_for),
+		//
+		// templating_repeat_elseif: ($) =>
+		// 	seq(alias("elseif", $.conditional), $.if_clause),
+		//
+		// templating_repeat_else: ($) => alias("else", $.conditional),
+		// templating_repeat_decl: ($) =>
+		// 	choice($.templating_repeat_elseif, $.templating_repeat_else),
+		//
+		// templating_cont_open: (_) => "{:",
+		// templating_open: (_) => "{#",
+		// templating_close: (_) => "}",
+		//
+		// template_repeat: ($) =>
+		// 	seq($.templating_cont_open, $.templating_repeat_decl, $.templating_close),
+		// templating_close_start: (_) => "{/",
+		//
+		// templating: ($) =>
+		// 	seq(
+		// 		$.templating_open,
+		// 		$.templating_decl,
+		// 		$.templating_close,
+		// 		repeat(choice($._node, /\s+/, $.template_repeat)),
+		// 		$.templating_close_start,
+		// 		$.conditional,
+		// 		$.templating_close,
+		// 	),
 
 		document: ($) => repeat($._node),
 
@@ -107,7 +107,7 @@ module.exports = grammar({
 				$.doctype,
 				$.entity,
 				$.substitution,
-				$.templating,
+				// $.templating,
 				$.text,
 				$.element,
 				$.script_element,
