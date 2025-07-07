@@ -24,6 +24,7 @@ module.exports = grammar({
 				"nml",
 				"title",
 				"pre",
+				"code",
 				"head",
 				"body",
 				"div",
