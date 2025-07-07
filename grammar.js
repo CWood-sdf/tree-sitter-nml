@@ -33,6 +33,8 @@ module.exports = grammar({
 				"ul",
 				"template",
 				"li",
+				"em",
+				"strong",
 				"slot",
 				/h[1-6]/,
 				/(\w+-)+\w+/,

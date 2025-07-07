@@ -613,6 +613,10 @@
     "named": false
   },
   {
+    "type": "em",
+    "named": false
+  },
+  {
     "type": "entity",
     "named": true
   },
@@ -686,6 +690,10 @@
   },
   {
     "type": "span",
+    "named": false
+  },
+  {
+    "type": "strong",
     "named": false
   },
   {
