@@ -1,19 +1,4 @@
-<p>That ugly union trick is absolutely <em><strong>DISGUSTING!!!</strong></em> This disease MUST be removed from the codebase as it couples two different structs' data layout together, thereby preventing change to both of them at the same time (impressive!)</p>
-<p>Quick example of the ugly union trick:</p>
-<div class="codehilite"><pre><span></span>
-<code><span class="k">struct</span><span class="w"> </span><span class="nc">Vec3</span><span class="w"> </span><span class="p">&lb;</span>
-<span class="w">  </span><span class="n">FLOAT</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">Quaternion</span><span class="w"> </span><span class="p">&lb;</span>
-<span class="w">  </span><span class="n">FLOAT</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
-<span class="w">  </span><span class="c1">// UGLY UNION TRICK HERE</span>
-<span class="w">  </span><span class="c1">// COUPLES THE DATA LAYOUT OF Quaternion and Vec3 TOGETHER AND PREVENTS BOTH OF THEM FROM BEING CHANGED!!</span>
-<span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">&lb;</span>
-<span class="w">    </span><span class="n">Vec3</span><span class="w"> </span><span class="n">xyz</span><span class="p">;</span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="p">&lb;</span>
-<span class="w">      </span><span class="n">FLOAT</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="w">  </span><span class="p">};</span>
-<span class="p">};</span>
-</code></pre></div>
+<nml>
+<progress> asdf </progress>
 
+</nml>

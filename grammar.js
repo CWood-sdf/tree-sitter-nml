@@ -35,6 +35,7 @@ module.exports = grammar({
 				"template",
 				"li",
 				"em",
+				"progress",
 				"strong",
 				"slot",
 				/h[1-6]/,

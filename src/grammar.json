@@ -74,6 +74,10 @@
         },
         {
           "type": "STRING",
+          "value": "progress"
+        },
+        {
+          "type": "STRING",
           "value": "strong"
         },
         {

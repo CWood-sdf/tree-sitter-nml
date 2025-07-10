@@ -681,6 +681,10 @@
     "named": false
   },
   {
+    "type": "progress",
+    "named": false
+  },
+  {
     "type": "raw_text",
     "named": true
   },
