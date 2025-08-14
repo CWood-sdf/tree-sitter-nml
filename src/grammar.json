@@ -822,6 +822,10 @@
                     {
                       "type": "SYMBOL",
                       "name": "quoted_attribute_value"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "bracketed_attribute_value"
                     }
                   ]
                 }
@@ -840,7 +844,7 @@
     },
     "attribute_value": {
       "type": "PATTERN",
-      "value": "[^<>\"'=\\s]+"
+      "value": "[^<>\"'{=\\s]+"
     },
     "entity": {
       "type": "PATTERN",
@@ -849,6 +853,36 @@
     "substitution": {
       "type": "PATTERN",
       "value": "%([\\w\\-]*;?|%)"
+    },
+    "bracketed_attribute_value": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[^}]+"
+              },
+              "named": true,
+              "value": "attribute_value"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
     },
     "quoted_attribute_value": {
       "type": "CHOICE",

@@ -1,4 +1,4 @@
 <nml>
-<progress> asdf </progress>
+<progress asdf={asadf}> asdf </progress>
 
 </nml>
